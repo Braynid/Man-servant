@@ -156,6 +156,34 @@
                 cmd = cmd.toLowerCase();          // case insensitive (dumb shell)
 
                 switch (cmd) {
+                    case "ls":
+                        var opts = parser.getopt(this, "prt");
+                        console.log(opts);
+                        console.log(this.argv[this.argc++])
+
+                        var opts = parser.getopt(this, "prt");
+                        console.log(opts);
+                        console.log(this.argv[this.argc++])
+
+                        var opts = parser.getopt(this, "prt");
+                        console.log(opts);
+
+
+                        console.log(this.argc)
+                        console.log(this.argv)
+
+                        if (opts.illegals.length) {
+                            // other option flags found
+                            this.write("Error: Illegal option.");
+                        }
+                        else if (this.argc != this.argv.length-2) {
+                            this.write("Error: Illegal argument list.");
+                        }
+                        else
+                        {
+                            this.type(this.argv[this.argc])
+                        }
+                    break;
                     case "exit":
                         this.close();
                         return;
